@@ -6,8 +6,80 @@
     <title>Ghost Grid // Premium Cyberpunk Creative Agency</title>
     <meta name="description" content="Ghost Grid is an ultra-modern futuristic creative agency specializing in Web Development, Graphic Design, Video Editing, Motion Graphics, Branding, and Digital Content.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="intro.css">
 </head>
 <body>
+
+    <!-- ====== ANIMATED INTRO OVERLAY ====== -->
+    <div id="intro-overlay" class="intro-overlay">
+        <!-- Background Grid Canvas -->
+        <canvas id="intro-canvas" class="intro-canvas"></canvas>
+
+        <!-- Scanlines -->
+        <div class="intro-scanlines"></div>
+
+        <!-- Corner brackets HUD -->
+        <div class="intro-hud-corner tl"></div>
+        <div class="intro-hud-corner tr"></div>
+        <div class="intro-hud-corner bl"></div>
+        <div class="intro-hud-corner br"></div>
+
+        <!-- Center Content -->
+        <div class="intro-center">
+            <!-- Top status line -->
+            <div class="intro-status-bar">
+                <span class="intro-status-label">SYS</span>
+                <span class="intro-status-sep">//</span>
+                <span class="intro-status-text" id="intro-status-msg">INITIALIZING...</span>
+            </div>
+
+            <!-- Main Logo Block -->
+            <div class="intro-logo-block">
+                <div class="intro-logo-icon" id="intro-logo-icon">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Ghost Grid G logo geometry -->
+                        <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" stroke="#00f0ff" stroke-width="1.5" fill="none" opacity="0.6"/>
+                        <polygon points="50,15 85,32.5 85,67.5 50,85 15,67.5 15,32.5" stroke="#d900ff" stroke-width="1" fill="none" opacity="0.4"/>
+                        <text x="50" y="64" text-anchor="middle" font-family="Orbitron, sans-serif" font-size="42" font-weight="900" fill="none" stroke="#00f0ff" stroke-width="1.5">G</text>
+                    </svg>
+                </div>
+
+                <div class="intro-title-block">
+                    <div class="intro-title" id="intro-title">GHOST GRID</div>
+                    <div class="intro-subtitle" id="intro-subtitle">CREATIVE AGENCY // DIGITAL SYSTEMS</div>
+                </div>
+            </div>
+
+            <!-- Loading Bar -->
+            <div class="intro-loader-block">
+                <div class="intro-loader-meta">
+                    <span class="intro-loader-label">BOOTING SYSTEM</span>
+                    <span class="intro-loader-pct" id="intro-pct">0%</span>
+                </div>
+                <div class="intro-loader-track">
+                    <div class="intro-loader-fill" id="intro-fill"></div>
+                    <div class="intro-loader-pulse"></div>
+                </div>
+                <div class="intro-loader-nodes">
+                    <span class="intro-node" id="n1">WEB_SYSTEMS</span>
+                    <span class="intro-node" id="n2">DESIGN_CORE</span>
+                    <span class="intro-node" id="n3">MOTION_ENGINE</span>
+                    <span class="intro-node" id="n4">GRID_ONLINE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom data readout -->
+        <div class="intro-footer-hud">
+            <span>GHOST GRID v2.10</span>
+            <span class="intro-hud-sep">|</span>
+            <span id="intro-clock">--:--:--</span>
+            <span class="intro-hud-sep">|</span>
+            <span>ENC: AES-512</span>
+        </div>
+    </div>
+    <!-- ====== END INTRO ====== -->
+
 
     <!-- Custom Cursor -->
     <div class="custom-cursor"></div>
@@ -207,7 +279,7 @@
             <div class="portfolio-grid">
                 <!-- Project 1 (Web) -->
                 <div class="portfolio-item" data-category="web">
-                    <img src="assets/cyberpunk_city.png" alt="Neo-Tokyo Nexus" class="portfolio-item-bg">
+                    <img src="assets/nexus_dashboard.png" alt="Neo-Tokyo Nexus" class="portfolio-item-bg">
                     <div class="portfolio-item-overlay">
                         <span class="portfolio-category">Web Development</span>
                         <h3 class="portfolio-item-title">Nexus Dashboard</h3>
@@ -220,7 +292,7 @@
 
                 <!-- Project 2 (Design) -->
                 <div class="portfolio-item" data-category="design">
-                    <img src="assets/cyberpunk_city.png" alt="Aether Branding" class="portfolio-item-bg">
+                    <img src="assets/aether_techwear.png" alt="Aether Branding" class="portfolio-item-bg">
                     <div class="portfolio-item-overlay">
                         <span class="portfolio-category">Branding / Identity</span>
                         <h3 class="portfolio-item-title">Aether Tech-wear</h3>
@@ -233,7 +305,7 @@
 
                 <!-- Project 3 (Motion) -->
                 <div class="portfolio-item" data-category="motion">
-                    <img src="assets/cyberpunk_city.png" alt="Hologram Glitch" class="portfolio-item-bg">
+                    <img src="assets/holo_glitch.png" alt="Hologram Glitch" class="portfolio-item-bg">
                     <div class="portfolio-item-overlay">
                         <span class="portfolio-category">Motion Graphics</span>
                         <h3 class="portfolio-item-title">Holo-Glitch Promo</h3>
@@ -246,7 +318,7 @@
 
                 <!-- Project 4 (Web) -->
                 <div class="portfolio-item" data-category="web">
-                    <img src="assets/cyberpunk_city.png" alt="Cyber Grid Shop" class="portfolio-item-bg">
+                    <img src="assets/synthetix_portal.png" alt="Cyber Grid Shop" class="portfolio-item-bg">
                     <div class="portfolio-item-overlay">
                         <span class="portfolio-category">Web Applications</span>
                         <h3 class="portfolio-item-title">Synthetix Portal</h3>
@@ -259,7 +331,7 @@
 
                 <!-- Project 5 (Design) -->
                 <div class="portfolio-item" data-category="design">
-                    <img src="assets/cyberpunk_city.png" alt="Vector HUD Elements" class="portfolio-item-bg">
+                    <img src="assets/vector_hud.png" alt="Vector HUD Elements" class="portfolio-item-bg">
                     <div class="portfolio-item-overlay">
                         <span class="portfolio-category">Graphic Design</span>
                         <h3 class="portfolio-item-title">Vector HUD Elements</h3>
@@ -272,7 +344,7 @@
 
                 <!-- Project 6 (Motion) -->
                 <div class="portfolio-item" data-category="motion">
-                    <img src="assets/cyberpunk_city.png" alt="Crypto-Matrix Loop" class="portfolio-item-bg">
+                    <img src="assets/crypto_matrix.png" alt="Crypto-Matrix Loop" class="portfolio-item-bg">
                     <div class="portfolio-item-overlay">
                         <span class="portfolio-category">Video / Motion</span>
                         <h3 class="portfolio-item-title">Crypto-Matrix Loops</h3>
@@ -395,5 +467,6 @@
     </footer>
 
     <script src="app.js"></script>
+    <script src="intro.js"></script>
 </body>
 </html>
