@@ -147,17 +147,43 @@
 /* ---- Main Title ---- */
 .intro-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    font-size: clamp(3.2rem, 8vw, 6rem);
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 6px;
+    letter-spacing: 8px;
     color: #fff;
     position: relative;
-    /* Glitch layers */
+    /* Neon glow layers */
     text-shadow:
-        0 0 20px rgba(0,240,255,0.4),
-        0 0 60px rgba(0,240,255,0.1);
-    animation: introTitleGlitch 5s infinite;
+        0 0 10px rgba(0,240,255,0.6),
+        0 0 30px rgba(0,240,255,0.4),
+        0 0 60px rgba(0,240,255,0.2),
+        0 0 100px rgba(217,0,255,0.15);
+    animation: introTitleGlitch 5s infinite, introTitleReveal 1.2s ease-out 0.5s both;
+}
+
+@keyframes introTitleReveal {
+    0% {
+        opacity: 0;
+        transform: scaleX(0.3) scaleY(0.8);
+        letter-spacing: 30px;
+        filter: blur(12px);
+    }
+    40% {
+        opacity: 1;
+        filter: blur(4px);
+    }
+    70% {
+        transform: scaleX(1.05) scaleY(1);
+        letter-spacing: 6px;
+        filter: blur(0px);
+    }
+    100% {
+        transform: scaleX(1) scaleY(1);
+        letter-spacing: 8px;
+        filter: blur(0);
+        opacity: 1;
+    }
 }
 
 .intro-title::before,
@@ -210,6 +236,23 @@
     letter-spacing: 4px;
     color: rgba(255,255,255,0.35);
     text-transform: uppercase;
+    opacity: 0;
+    animation: introSubReveal 0.8s ease-out 1.5s forwards;
+}
+
+@keyframes introSubReveal {
+    0% {
+        opacity: 0;
+        letter-spacing: 12px;
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        letter-spacing: 4px;
+        filter: blur(0);
+        color: rgba(0, 240, 255, 0.45);
+        text-shadow: 0 0 8px rgba(0,240,255,0.3);
+    }
 }
 
 /* ---- Loader Block ---- */

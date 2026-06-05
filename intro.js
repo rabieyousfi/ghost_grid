@@ -237,9 +237,6 @@
             // After CSS transition completes, remove overlay entirely and clean up intro name
             overlay.addEventListener('transitionend', () => {
                 overlay.remove();
-                // Remove the animated intro name element
-                const introNameEl = document.getElementById('intro-name');
-                if (introNameEl) introNameEl.remove();
                 cancelAnimationFrame(animFrame);
                 clearInterval(clockInterval);
                 document.body.classList.remove('intro-active');
