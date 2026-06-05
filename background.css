@@ -9,10 +9,78 @@
     overflow: hidden;
     pointer-events: none;      /* allow clicks through */
     background: #040409;       /* fallback solid color */
+    /* Neon gradient base */
+    background: linear-gradient(135deg, var(--neon-pink) 0%, var(--neon-blue) 100%);
+    animation: bgHueShift 30s linear infinite;
 }
 
 /* Ensure content sits above the background */
 body {
     position: relative;
     z-index: 0;
+    perspective: 800px;        /* give depth for parallax layers */
+}
+
+:root {
+    --bg-primary: #040409;
+    --bg-secondary: #0a0a16;
+    --color-cyan: #00f0ff;
+    --color-purple: #d900ff;
+    --color-blue: #0066ff;
+    --text-primary: #e2e8f0;
+    --text-secondary: #8a8fa3;
+    --text-glow-cyan: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.3);
+    --text-glow-purple: 0 0 10px rgba(217, 0, 255, 0.6), 0 0 20px rgba(217, 0, 255, 0.3);
+    --border-cyan: rgba(0, 240, 255, 0.25);
+    --border-purple: rgba(217, 0, 255, 0.25);
+    --border-cyan-glow: 0 0 15px rgba(0, 240, 255, 0.4);
+    --border-purple-glow: 0 0 15px rgba(217, 0, 255, 0.4);
+    --glass-bg: rgba(10, 10, 22, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --neon-pink: #ff00ff;
+    --neon-blue: #00b3ff;
+}
+
+/* City skyline layer */
+.bg-city {
+    position: absolute;
+    inset: 0;
+    background: url('assets/cyberpunk_city.png') center/cover no-repeat;
+    transform: translateZ(0) scale(1.02);
+    opacity: 0.45;
+    mix-blend-mode: screen;
+}
+
+/* Holographic overlay */
+.bg-holo {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(255,0,255,0.15), transparent 70%);
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    animation: holoPulse 8s ease-in-out infinite;
+}
+
+/* Volumetric fog */
+.bg-fog::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at bottom, rgba(0,0,0,0.6), transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+@keyframes bgHueShift {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes holoPulse {
+    0%,100% { opacity: 0.15; }
+    50% { opacity: 0.35; }
 }
