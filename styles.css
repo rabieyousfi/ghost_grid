@@ -1257,3 +1257,43 @@ footer::before {
     animation: glitch-text 4s infinite alternate;
     margin-top: 0.5rem;
 }
+
+/* Intro Name Animation */
+.intro-name {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 900;
+    color: transparent;
+    -webkit-background-clip: text;
+    background: linear-gradient(90deg, var(--color-cyan), var(--color-purple));
+    -webkit-text-fill-color: transparent;
+    animation: glitch-text 4s infinite alternate;
+    pointer-events: none;
+    z-index: 9999; /* ensure on top */
+    opacity: 0;
+    animation: fadeIn 2s ease forwards, glitch-text 4s infinite alternate;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glitch-text {
+    0% {
+        text-shadow: 2px 2px 0px rgba(217, 0, 255, 0.8), -2px -2px 0px rgba(0, 240, 255, 0.8);
+    }
+    10% {
+        text-shadow: -2px 2px 0px rgba(217, 0, 255, 0.8), 2px -2px 0px rgba(0, 240, 255, 0.8);
+    }
+    20% {
+        text-shadow: 2px -2px 0px rgba(217, 0, 255, 0.8), -2px 2px 0px rgba(0, 240, 255, 0.8);
+    }
+    30%, 100% {
+        text-shadow: none;
+    }
+}
