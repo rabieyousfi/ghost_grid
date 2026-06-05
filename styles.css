@@ -1247,3 +1247,13 @@ footer::before {
         text-align: center;
     }
 }
+.powered-by {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--color-cyan);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: var(--text-glow-cyan);
+    animation: glitch-text 4s infinite alternate;
+    margin-top: 0.5rem;
+}
